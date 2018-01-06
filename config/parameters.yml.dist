@@ -1,0 +1,4 @@
+storage:
+    type: filesystem
+    path: /var/trades
+

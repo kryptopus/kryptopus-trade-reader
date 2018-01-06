@@ -1,0 +1,13 @@
+services:
+    app_command_read:
+        class: "application/command/ReadCommand"
+        arguments:
+            - "@app_storage_factory"
+        tags:
+            - { name: "solfege.console.command" }
+
+    app_storage_factory:
+        class: "domain/service/StorageFactory"
+        arguments:
+            - "%storage%"
+

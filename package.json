@@ -1,0 +1,50 @@
+{
+    "name": "kryptopus-trade-reader",
+    "author": "neolao <contact@neolao.com>",
+    "main": "lib/console.js",
+    "engines": {
+        "node": ">= 9"
+    },
+    "dependencies": {
+        "decko": "^1.2.0",
+        "fs-extra": "^5.0.0",
+        "moment": "^2.20.1",
+        "solfegejs": "^3.1.1"
+    },
+    "devDependencies": {
+        "babel-cli": "^6.7",
+        "babel-preset-solfege": "^1.1.2",
+        "eslint": "^3.19",
+        "eslint-plugin-solfege": "^1.0",
+        "flow-bin": "^0.60.1",
+        "solfegejs-dependency-injection": "^2.2.4",
+        "watch": "^1.0.2"
+    },
+    "scripts": {
+        "flow-stop": "flow stop",
+        "flow-start": "flow start",
+        "flow-restart": "flow stop && flow start",
+        "lint": "eslint --ext .js src",
+        "prepare": "npm run build",
+        "prebuild": "npm run flow-restart && flow",
+        "build": "babel --out-dir lib src --copy-files",
+        "watch": "watch 'echo \"----------\"; npm run build --silent' ./src",
+        "console": "node lib/console.js",
+        "read": "node lib/console.js read"
+    },
+    "babel": {
+        "presets": [
+            "solfege"
+        ],
+        "comments": false,
+        "plugins": [
+            "transform-decorators-legacy"
+        ]
+    },
+    "eslintConfig": {
+        "extends": [
+            "eslint:recommended",
+            "plugin:solfege/recommended"
+        ]
+    }
+}
